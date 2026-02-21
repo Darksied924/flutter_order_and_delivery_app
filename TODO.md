@@ -1,48 +1,18 @@
-# TODO: Project Restructuring Plan
+# TODO: Fix All Errors in Flutter Project
 
-## Phase 1: Directory Structure
-- [x] Analyze existing project
-- [x] Create directory structure in lib/
+## Phase 1: Critical Errors
+- [ ] 1. Fix lib/main.dart - Remove Flutter counter demo and fix syntax errors
+- [ ] 2. Fix lib/services/auth_service.dart - Hide User from firebase_auth
+- [ ] 3. Fix lib/services/db_service.dart - Hide Order from cloud_firestore
+- [ ] 4. Fix lib/services/payment_service.dart - Fix Map iteration issue
+- [ ] 5. Fix lib/screens/admin/admin_dashboard.dart - List<Order> assignment
+- [ ] 6. Fix lib/screens/customer/order_tracking_screen.dart - List<Order> assignment
+- [ ] 7. Fix lib/screens/delivery/delivery_home.dart - List<Order> assignment
 
-## Phase 2: Core Utilities
-- [x] Create lib/utils/constants.dart
-- [x] Create lib/utils/helpers.dart
+## Phase 2: Additional Fixes
+- [ ] 8. Update test/widget_test.dart
+- [ ] 9. Fix deprecation warnings
 
-## Phase 3: Data Models
-- [x] Create lib/models/user.dart
-- [x] Create lib/models/product.dart
-- [x] Create lib/models/order.dart
-
-## Phase 4: Services
-- [x] Create lib/services/auth_service.dart
-- [x] Create lib/services/db_service.dart
-- [x] Create lib/services/payment_service.dart
-
-## Phase 5: Screens
-- [x] Create lib/screens/auth/login_screen.dart
-- [x] Create lib/screens/auth/register_screen.dart
-- [x] Create lib/screens/customer/home_screen.dart
-- [x] Create lib/screens/customer/cart_screen.dart
-- [x] Create lib/screens/customer/order_tracking_screen.dart
-- [x] Create lib/screens/delivery/delivery_home.dart
-- [x] Create lib/screens/delivery/update_status_screen.dart
-- [x] Create lib/screens/admin/admin_dashboard.dart
-- [x] Create lib/screens/admin/add_product_screen.dart
-
-## Phase 6: Widgets
-- [x] Create lib/widgets/custom_button.dart
-- [x] Create lib/widgets/product_card.dart
-- [x] Create lib/widgets/order_tile.dart
-
-## Phase 7: Configuration
-- [ ] Update lib/main.dart (replaced with new structure)
-- [x] Update pubspec.yaml with dependencies
-- [x] Create .env file
-- [x] Create firebase.json
-- [x] Create firestore.rules
-- [x] Create functions/package.json
-- [x] Create functions/index.js
-
-## Phase 8: Assets
-- [x] Create assets/ directory structure
+## Phase 3: Verification
+- [ ] 10. Run flutter analyze to verify all errors are fixed
 

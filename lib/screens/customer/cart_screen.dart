@@ -1,5 +1,7 @@
 // lib/screens/customer/cart_screen.dart
 
+// ignore_for_file: unused_field
+
 import 'package:flutter/material.dart';
 import '../../models/product.dart';
 import '../../models/order.dart';
@@ -92,13 +94,11 @@ class _CartScreenState extends State<CartScreen> {
       }
 
       // Create order
-      final user = await _authService.getUserData(
-        _authService.currentUser!.uid,
-      );
+      final user = await _authService.getUserData(_authService.currentUser!.id);
 
       Order order = Order(
         id: DateTime.now().millisecondsSinceEpoch.toString(),
-        userId: _authService.currentUser!.uid,
+        userId: _authService.currentUser!.id,
         userName: user?.name ?? 'Unknown',
         userPhone: phone,
         deliveryAddress: address,

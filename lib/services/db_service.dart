@@ -1,6 +1,6 @@
 // lib/services/db_service.dart
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart' hide Order;
 import '../models/product.dart';
 import '../models/order.dart';
 import '../utils/constants.dart';
@@ -269,7 +269,7 @@ class DBService {
               AppConstants.orderStatusProcessing,
             ],
           )
-          .orderBy('createdAt', ascending: true)
+          .orderBy('createdAt', descending: false)
           .get();
 
       return querySnapshot.docs

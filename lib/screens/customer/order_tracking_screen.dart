@@ -35,9 +35,9 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
     });
 
     try {
-      final userId = _authService.currentUser?.uid;
+      final userId = _authService.currentUser?.id;
       if (userId != null) {
-        List<Order> orders = await _dbService.getOrdersByUserId(userId);
+        final orders = await _dbService.getOrdersByUserId(userId);
         setState(() {
           _orders = orders;
           _isLoading = false;

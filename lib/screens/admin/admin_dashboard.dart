@@ -34,9 +34,9 @@ class _AdminDashboardState extends State<AdminDashboard> {
     setState(() => _isLoading = true);
 
     try {
-      List<Order> orders = await _dbService.getAllOrders();
-      int todayOrders = await _dbService.getTodayOrdersCount();
-      double revenue = await _dbService.getTotalRevenue();
+      final orders = await _dbService.getAllOrders();
+      final todayOrders = await _dbService.getTodayOrdersCount();
+      final revenue = await _dbService.getTotalRevenue();
 
       setState(() {
         _orders = orders;

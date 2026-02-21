@@ -1,18 +1,1 @@
-{
-  "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
-  },
-  "hosting": {
-    "public": "build/web",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ]
-  },
-  "functions": {
-    "source": "functions"
-  }
-}
-
+{"firestore":{"rules":"firestore.rules","indexes":"firestore.indexes.json"},"hosting":{"public":"build/web","ignore":["firebase.json","**/.*","**/node_modules/**"]},"functions":{"source":"functions"},"flutter":{"platforms":{"android":{"default":{"projectId":"order-and-delivery-app-8835d","appId":"1:49474296509:android:117dcd938186e1fdfeb5d4","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"order-and-delivery-app-8835d","configurations":{"android":"1:49474296509:android:117dcd938186e1fdfeb5d4","ios":"1:49474296509:ios:90596279d69414defeb5d4","macos":"1:49474296509:ios:90596279d69414defeb5d4","web":"1:49474296509:web:c0768e0bf8fbf05bfeb5d4","windows":"1:49474296509:web:4d8040c16cf43f5cfeb5d4"}}}}}}

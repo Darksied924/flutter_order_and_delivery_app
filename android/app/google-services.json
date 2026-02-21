@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "49474296509",
+    "project_id": "order-and-delivery-app-8835d",
+    "storage_bucket": "order-and-delivery-app-8835d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49474296509:android:117dcd938186e1fdfeb5d4",
+        "android_client_info": {
+          "package_name": "com.example.flutter_order_and_delivery_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "49474296509-m3c05jhc6c1d0afhp63beni1a0qnsvd1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfFk9Hq2lJgysON8kLuQV_LCdQrgQzJF8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "49474296509-m3c05jhc6c1d0afhp63beni1a0qnsvd1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "49474296509-lia25ppft404qg6jk36vd27qf150v5kk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.felix.orderdelivery"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49474296509:android:8c8497e042c86823feb5d4",
+        "android_client_info": {
+          "package_name": "com.felix.orderdelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "49474296509-m3c05jhc6c1d0afhp63beni1a0qnsvd1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfFk9Hq2lJgysON8kLuQV_LCdQrgQzJF8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "49474296509-m3c05jhc6c1d0afhp63beni1a0qnsvd1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "49474296509-lia25ppft404qg6jk36vd27qf150v5kk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.felix.orderdelivery"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

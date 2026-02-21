@@ -43,8 +43,8 @@ class _DeliveryHomeState extends State<DeliveryHome> {
     });
 
     try {
-      final userId = _authService.currentUser?.uid;
-      List<Order> orders;
+      // Using currentUser.id instead of uid
+      final List<Order> orders;
 
       if (_selectedFilter == 'all') {
         orders = await _dbService.getAllOrders();

@@ -126,12 +126,13 @@ class PaymentService {
       if (resultCode == '0') {
         // Payment successful
         // Extract receipt number from callback
-        Map<String, dynamic> callbackMetadata =
-            stkCallback['CallbackMetadata']['Item'];
+        List<dynamic> callbackMetadata =
+            stkCallback['CallbackMetadata']['Item'] as List<dynamic>;
         String? receiptNumber;
-        for (var item in callbackMetadata) {
-          if (item['Name'] == 'MpesaReceiptNumber') {
-            receiptNumber = item['Value'];
+        for (dynamic item in callbackMetadata) {
+          Map<String, dynamic> itemMap = item as Map<String, dynamic>;
+          if (itemMap['Name'] == 'MpesaReceiptNumber') {
+            receiptNumber = itemMap['Value'].toString();
             break;
           }
         }

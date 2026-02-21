@@ -1,34 +1,62 @@
 // lib/services/auth_service.dart
 
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/user.dart';
 import '../utils/constants.dart';
 
 class AuthService {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final auth.FirebaseAuth _auth = auth.FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   // Get current user
-  User? get currentUser => _auth.currentUser;
+  User? get currentUser => _auth.currentUser != null
+      ? User(
+          id: _auth.currentUser!.uid,
+          email: _auth.currentUser!.email ?? '',
+          name: _auth.currentUser!.displayName ?? '',
+          phone: _auth.currentUser!.phoneNumber ?? '',
+          role: 'customer',
+          createdAt: DateTime.now(),
+        )
+      : null;
 
   // Stream of auth state changes
-  Stream<User?> get authStateChanges => _auth.authStateChanges();
+  Stream<User?> get authStateChanges {
+    return _auth.authStateChanges().map((firebaseUser) {
+      if (firebaseUser != null) {
+        return User(
+          id: firebaseUser.uid,
+          email: firebaseUser.email ?? '',
+          name: firebaseUser.displayName ?? '',
+          phone: firebaseUser.phoneNumber ?? '',
+          role: 'customer',
+          createdAt: DateTime.now(),
+        );
+      }
+      return null;
+    });
+  }
 
   // Login with email and password
   Future<User?> login(String email, String password) async {
     try {
-      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+      auth.UserCredential userCredential = await _auth
+          .signInWithEmailAndPassword(email: email, password: password);
 
       if (userCredential.user != null) {
         await _updateUserLastSeen(userCredential.user!.uid);
-        return userCredential.user;
+        return User(
+          id: userCredential.user!.uid,
+          email: userCredential.user!.email ?? '',
+          name: userCredential.user!.displayName ?? '',
+          phone: userCredential.user!.phoneNumber ?? '',
+          role: 'customer',
+          createdAt: DateTime.now(),
+        );
       }
       return null;
-    } on FirebaseAuthException catch (e) {
+    } on auth.FirebaseAuthException catch (e) {
       throw _handleAuthError(e);
     }
   }
@@ -42,7 +70,7 @@ class AuthService {
     String role,
   ) async {
     try {
-      UserCredential userCredential = await _auth
+      auth.UserCredential userCredential = await _auth
           .createUserWithEmailAndPassword(email: email, password: password);
 
       if (userCredential.user != null) {
@@ -61,10 +89,10 @@ class AuthService {
             .doc(userCredential.user!.uid)
             .set(user.toMap());
 
-        return userCredential.user;
+        return user;
       }
       return null;
-    } on FirebaseAuthException catch (e) {
+    } on auth.FirebaseAuthException catch (e) {
       throw _handleAuthError(e);
     }
   }
@@ -118,13 +146,13 @@ class AuthService {
   Future<void> sendPasswordResetEmail(String email) async {
     try {
       await _auth.sendPasswordResetEmail(email: email);
-    } on FirebaseAuthException catch (e) {
+    } on auth.FirebaseAuthException catch (e) {
       throw _handleAuthError(e);
     }
   }
 
   // Handle auth errors
-  String _handleAuthError(FirebaseAuthException e) {
+  String _handleAuthError(auth.FirebaseAuthException e) {
     switch (e.code) {
       case 'user-not-found':
         return 'No user found with this email';
